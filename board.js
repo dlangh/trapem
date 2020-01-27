@@ -174,7 +174,6 @@ var board = {
 		this.levelElem.innerHTML = this.level;
 		this.speedElem.innerHTML = this.speed;
 		this.numCargoElem.innerHTML = this.numCargo;
-		console.log(this.numCargo);
 		this.setup();
 		this.start(); // restart the game loop
 	},
@@ -226,7 +225,6 @@ var board = {
 		}
 	},
 	pause: function(mode) {
-		console.log(this.pause);
 		var gamesound = document.getElementById("game"); 
 		gamesound.pause();
 		var btnStatus = document.getElementById('btnStatus');
