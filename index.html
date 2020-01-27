@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trap 'Em</title>
+
+<link href='http://fonts.googleapis.com/css?family=Roboto&effect=shadow-multiple' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto&effect=emboss' rel='stylesheet' type='text/css'> 
+<link href='http://fonts.googleapis.com/css?family=Roboto&effect=3d' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto&effect=anaglyph' rel='stylesheet' type='text/css'> 
+<link href='http://fonts.googleapis.com/css?family=Roboto&effect=grass' rel='stylesheet' type='text/css'> 
+
+<link rel="stylesheet" type="text/css" href="trapem.css">
+
+<script src="hero.js"></script>
+<script src="cargo.js"></script>
+<script src="fixedcargo.js"></script>
+<script src="monster.js"></script>
+<script src="board.js"></script>
+</head>
+
+<body onkeydown="hero.move(event);">
+<div id="overlay" class="overlay"></div>
+<div id="header" class="header font-effect-emboss">
+		<span >Level: <span id="level">1</span></span>
+		<span class="time">Time: 
+			<span id="minutes">00</span>:<span id="seconds">00</span>
+		</span> 
+		<span>Moves: 
+			<span id="nummoves">0000</span>
+		</span>
+		<span class="actions">
+			<input type="button" id="btnStatus" class="pause btn font-effect-shadow-multiple" value="Pause" onclick="board.pause();">
+			<input type="button" id="btnOptions" class="options btn font-effect-shadow-multiple" value="Options" onclick="board.pause(1);location.href='#optionsModal';">
+			<input type="button" id="btnAbout" class="about btn font-effect-shadow-multiple" value="About" onclick="board.pause(1);location.href='#aboutModal';">
+		</span>
+		<span>Speed: <span id="speed">3500</span></span>
+		<span>Cargo: <span id="numcargo">200</span></span>
+		<span class="hiscorelabel">Hi Score: <span id="hiscore">0000</span></span>
+		
+	</div>
+<div id="border">
+<div id="board" class="board"></div>
+</div>
+<script>board.init();board.start();
+</script>
+
+<div id="optionsModal" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<h2>Options [NOT IMPLEMENTED YET]</h2> 
+		<label class="formlabel">Board Size</label>
+		<input type="button" class="btn" name="size1" value="Small">
+		<input type="button" class="btn-selected" name="size2" value="Medium">
+		<input type="button" class="btn" name="size3" value="Large">
+		<br><br>
+		<label class="formlabel">Number of Monsters </label>
+		<input type="button" class="btn" name="monsters1" value="1">
+		<input type="button" class="btn" name="monsters2" value="2">
+		<input type="button" class="btn-selected" name="monsters3" value="3">
+		<br><Br>
+		<label class="formlabel">Monster Speed</label>
+		<input type="button" class="btn-selected" name="speed1" value="Slow">
+		<input type="button" class="btn" name="speed2" value="Medium">
+		<input type="button" class="btn" name="speed3" value="Fast">
+	</div>
+</div>
+
+<div id="aboutModal" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<h2>About Trap 'em</h2>
+		<p>Version 0.96 - 09.05.2018</p>
+		<p>Copyright (c) 2014-2018; Donald M. Langhorne<br />All Rights Reserved</p>
+		<p>Concept based on the original game published in Nibble Magazine by Robert Smythe</p>
+	</div>
+</div>
+
+<audio id="game">
+  <source src="sound/game.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+<audio id="stepper">
+  <source src="sound/duck2.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
+</body>
+
+</html>
+
